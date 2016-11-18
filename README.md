@@ -50,6 +50,7 @@ mac_framework_link=True
 
 https://www.tensorflow.org/versions/r0.11/get_started/os_setup.html#pip-installation
 
+possible error you might get: 
 ```
 ———————————————x—————————————————x———————————————————x——————————————————————————
 if you get error like this:
