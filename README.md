@@ -1,8 +1,8 @@
-# Deep-Learning installation for MacOS, keras, theano, tensorflow, CUDA 8.0
+# Deep-Learning software installation for MacOS, keras, theano, tensorflow, CUDA 8.0
 
 ##Installation of CUDA
 
-https://developer.nvidia.com/cuda-downloads
+https://developer.nvidia.com/cuda-downloads   -  download and install
 
 ##Installation of cudnn
 
