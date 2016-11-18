@@ -1,14 +1,12 @@
-# Deep-Learning instllation for MacOS, keras, theano, tensorflow, CUDA 8.0
+# Deep-Learning installation for MacOS, keras, theano, tensorflow, CUDA 8.0
 
-Installation
+##Installation of CUDA
 
 https://developer.nvidia.com/cuda-downloads
 
-download and install
+##Installation of cudnn
 
 https://developer.nvidia.com/cudnn
-
-download and install
 
 Once you have it downloaded locally, you can unzip — All this should be in home folder (i.e include and lib folders should be outside cuda - extracted folder)
 
@@ -20,14 +18,14 @@ sudo ln -s /Developer/NVIDIA/CUDA-8.0/lib/libcudnn* /usr/local/cuda/lib/
 
 ```
 
-#add to .bashrc file
+##add to .bashrc file
 ```
 export CUDA_HOME=/usr/local/cuda
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
 export PATH="$CUDA_HOME/bin:$PATH"
 
 ```
-#create and add to .theanorc file
+##create and add to .theanorc file
 ```
 [global]
 device = gpu
@@ -48,7 +46,7 @@ mac_framework_link=True
 #cnmem=.10
 
 ```
-#for tensor flow installation:
+##for tensor flow installation:
 
 https://www.tensorflow.org/versions/r0.11/get_started/os_setup.html#pip-installation
 
@@ -72,13 +70,13 @@ $ ln -s libcuda.dylib libcuda.1.dylib
 ———————————————x—————————————————x———————————————————x——————————————————————————
 ```
 
-#install keras
+##install keras
 `sudo pip install keras`
 
-#to change from theano to tensorflow
+##to change from theano to tensorflow
  `vi ~/.keras/keras.json`
 
-#for keras to use theano
+##for keras to use theano
 ```
 {
 "image_dim_ordering": "th",
@@ -88,7 +86,7 @@ $ ln -s libcuda.dylib libcuda.1.dylib
 }
 ```
 
-#for keras to use tensorflow
+##for keras to use tensorflow
 ```
 {
 "image_dim_ordering": "tf”,
@@ -98,12 +96,12 @@ $ ln -s libcuda.dylib libcuda.1.dylib
 }
 ```
 
-#run this code to check if it uses gpu and also if it uses theano or tensor flow
+##run this code to check if it uses gpu and also if it uses theano or tensor flow
 `python -c "import keras; print(keras.__version__)"`
 
 
 
-#run this code to check if it uses gpu
+##run this code to check if it uses gpu
 ```
 from theano import function, config, shared, sandbox
 import theano.tensor as T
