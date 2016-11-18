@@ -1,6 +1,6 @@
-# Deep-Learning
+# Deep-Learning instllation for MacOS, keras, theano, tensorflow, CUDA 8.0
 
-Instllation
+Installation
 
 https://developer.nvidia.com/cuda-downloads
 
@@ -11,17 +11,24 @@ https://developer.nvidia.com/cudnn
 download and install
 
 Once you have it downloaded locally, you can unzip — All this should be in home folder (i.e include and lib folders should be outside cuda - extracted folder)
+
 Then use these commands 
-$ sudo mv include/cudnn.h /Developer/NVIDIA/CUDA-8.0/include/
-$ sudo mv lib/libcudnn* /Developer/NVIDIA/CUDA-8.0/lib
-$ sudo ln -s /Developer/NVIDIA/CUDA-8.0/lib/libcudnn* /usr/local/cuda/lib/
+```
+sudo mv include/cudnn.h /Developer/NVIDIA/CUDA-8.0/include/
+sudo mv lib/libcudnn* /Developer/NVIDIA/CUDA-8.0/lib
+sudo ln -s /Developer/NVIDIA/CUDA-8.0/lib/libcudnn* /usr/local/cuda/lib/
+
+```
 
 #add to .bashrc file
+```
 export CUDA_HOME=/usr/local/cuda
 export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$CUDA_HOME/lib"
 export PATH="$CUDA_HOME/bin:$PATH"
 
+```
 #create and add to .theanorc file
+```
 [global]
 device = gpu
 floatX = float32
@@ -40,11 +47,12 @@ mac_framework_link=True
 #[lib]
 #cnmem=.10
 
-
-for tensor flow installation:
+```
+#for tensor flow installation:
 
 https://www.tensorflow.org/versions/r0.11/get_started/os_setup.html#pip-installation
 
+```
 ———————————————x—————————————————x———————————————————x——————————————————————————
 if you get error like this:
 
@@ -62,38 +70,41 @@ $ cd /usr/local/cuda/lib
 $ ln -s libcuda.dylib libcuda.1.dylib
 
 ———————————————x—————————————————x———————————————————x——————————————————————————
+```
 
 #install keras
-sudo pip install keras
+`sudo pip install keras`
 
 #to change from theano to tensorflow
- vi ~/.keras/keras.json
+ `vi ~/.keras/keras.json`
 
-for theano
- {
+#for keras to use theano
+```
+{
 "image_dim_ordering": "th",
 "epsilon": 1e-07,
 "floatx": "float32",
 "backend": "theano"
 }
+```
 
-
-for tensorflow
-
- {
+#for keras to use tensorflow
+```
+{
 "image_dim_ordering": "tf”,
 "epsilon": 1e-07,
 "floatx": "float32",
 "backend": "tensorflow"
 }
-
+```
 
 #run this code to check if it uses gpu and also if it uses theano or tensor flow
-python -c "import keras; print(keras.__version__)"
+`python -c "import keras; print(keras.__version__)"`
 
 
 
 #run this code to check if it uses gpu
+```
 from theano import function, config, shared, sandbox
 import theano.tensor as T
 import numpy
@@ -116,3 +127,4 @@ if numpy.any([isinstance(x.op, T.Elemwise) for x in f.maker.fgraph.toposort()]):
     print('Used the cpu')
 else:
     print('Used the gpu')
+```
