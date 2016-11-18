@@ -1,4 +1,4 @@
-# Deep-Learning software installation for MacOS, keras, theano, tensorflow, CUDA 8.0
+# Deep-Learning software installation for MacOS -> keras, theano, tensorflow, CUDA 8.0
 
 ##Installation of CUDA
 
